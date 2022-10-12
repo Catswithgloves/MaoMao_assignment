@@ -1,0 +1,113 @@
+# temperature function
+def ftoc(fahrenheit):
+    celsius=(fahrenheit-32)*5/9
+    return celsius
+
+def ctof(celsius):
+    fahrenheit=(celsius*9/5)+32
+    return fahrenheit
+
+#length function
+def mtokm(m):
+    km=m*1.60934
+    return km
+
+def kmtom(km):
+    m=km/0.6213711922
+    return m
+
+#weight function
+def ptokilo(p):
+    kilo=p*0.45359237
+    return kilo
+
+def kilotop(kilo):
+    p=kilo*2.2046226218488
+    return p
+
+#Ask user if they want to start again, The startswith() method returns True if user input starts with Y,otherwise False
+def startagain():
+    print('Do you want to start again? (yes or no)')
+    return input().lower().startswith('y')
+    
+    #Ask users to choose from different function,use lower() to convert user input into lowercase letter
+print('Welcome to converter, please choose from converting funtions:','A.Temperature','B.Length','C.Weight')
+get_function=input('Please type in your choice:').lower()
+print()
+
+
+# Use while true statement to create infinite loop, so user can start over and over again until they quit
+while True:
+    
+    if get_function == 'a': 
+        print('Temperature converter')
+        print()
+        print('A.Farenheit to Celsius')
+        print('B.Celsius to Farenheit')
+        print()
+        get_temp=input('Input your choice:').lower()
+        
+        if get_temp=='a':
+            get_f=float(input('Input Farenheit:'))
+            out_c=ftoc(get_f)
+            print(f'{get_f} Farenheit is equal to {out_c} Celsius' )
+     
+        else: 
+            get_c=float(input('Input Celsius:'))
+            out_f=ctof(get_c)
+            print(f'{get_c} Celsius is equal to {out_f} Farenheit' )  
+        
+        ConvertDone=True
+        
+            
+    elif get_function =='b':
+        print('Length converter')
+        print()
+        print('A.Miles to KM')
+        print('B.KM to Miles')
+        print()
+        get_len=input('Input your choice:').lower()
+         
+        if get_len=='a':
+            get_m=float(input('Input Miles:'))
+            out_km=mtokm(get_m)
+            print()
+            print(f'{get_m} miles is equal to {out_km} km' )
+           
+        else:
+            get_km=float(input('Input KM:'))
+            out_m=kmtom(get_km)
+            print()
+            print(f'{get_km} km is equal to {out_m} m' )
+            print()
+        
+        ConvertDone=True
+
+    else:
+        print('Weight converter')
+        print()
+        print('A.Pound to Kilogram')
+        print('B.Kilogram to Pound')
+        print()
+        get_wei=input('Input your choice:').lower()
+        
+        if get_wei=='a':
+            get_p=float(input('Input Pound:'))
+            out_kilo=ptokilo(get_p)
+            print()
+            print(f'{get_p} pound is equal to {out_kilo} kilograms' )
+    
+        else:
+            get_kilo=float(input('Input Kilogram:'))
+            out_p=kilotop(get_kilo)
+            print()
+            print(f'{get_kilo} kilogram is equal to {out_p} pounds' )
+        
+        ConvertDone=True
+    
+    if ConvertDone:
+        if startagain():
+            print('Welcome to converter, please choose from converting funtions:','A.Temperature','B.Length','C.Weight')
+            get_function=input('Please type in your choice:').lower()
+        else:
+            break
